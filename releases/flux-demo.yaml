@@ -1,0 +1,15 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: flux-demo
+  namespace: flux-demo
+  annotations:
+    clusterconfig.azure.com/use-managed-source: "true"
+spec:
+  interval: 1m
+  releaseName: flux-demo
+  chart:
+    spec:
+      chart: ./charts/flux-demo
+  values:
+    message: "Welcome to the Azure Arc OTC CCE demo!"

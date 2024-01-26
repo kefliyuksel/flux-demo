@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flux-demo
+  namespace: flux-demo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: flux-demo
+  template:
+    metadata:
+      labels:
+        app: flux-demo
+    spec:
+      containers:
+      - name: flux-demo
+        image: nginx:latest
+        ports:
+        - containerPort: 8080
+        env:
+        - name: MESSAGE
+          value: "{{ .Values.message}}"
