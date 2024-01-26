@@ -4,7 +4,7 @@ metadata:
   name: flux-demo
   namespace: flux-demo
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       app: flux-demo
